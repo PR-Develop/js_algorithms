@@ -1,10 +1,10 @@
-function bubblesort(array) {
+function bubblesort(array, asc = true) {
   let swap;
   let sorted;
   do {
     sorted = true;
     for (let i = 0; i < array.length; i++) {
-      if (array[i] > array[i + 1]) {
+      if (getAscExpression(array[i], array[i + 1], asc)) {
         swap = array[i];
         array[i] = array[i + 1];
         array[i + 1] = swap;
@@ -13,6 +13,14 @@ function bubblesort(array) {
     }
   } while (!sorted);
   return array;
+}
+
+function getAscExpression(first, secound, asc) {
+  if (asc) {
+    return first > secound;
+  } else {
+    return secound > first;
+  }
 }
 
 module.exports = bubblesort;
