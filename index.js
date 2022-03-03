@@ -1,6 +1,8 @@
 let bubblesort = require("./bubblesort");
 let dataGenerator = require("./dataGenerator");
 
-console.log(bubblesort([1, 3, 2], true));
+let data = dataGenerator.generateUnsortedIntArray(1000);
 
-console.log(dataGenerator.generateUnsortedIntArray(10));
+console.time("bubblesort");
+console.log(bubblesort(data, true));
+console.timeEnd("bubblesort");
